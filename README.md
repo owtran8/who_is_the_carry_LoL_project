@@ -18,4 +18,4 @@ I will build a classification model to predict whether a player is the main carr
 Owen Tran
 
 
-![League of Legends Project Image](images/baron.jpg)
+<img src="images/league_image.png" alt="League of Legends image" width="700">
