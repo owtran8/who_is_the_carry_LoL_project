@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-  <title>Who Really Carries?</title>
+  <title>What Role Makes the Biggest Impact?</title>
 
   <!-- Lato Font -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
@@ -28,7 +30,7 @@
     }
 
     .hero h1 {
-      max-width: 1050px;
+      max-width: 1100px;
       margin: 0 auto 15px;
       font-size: 46px;
       line-height: 1.1;
@@ -40,7 +42,7 @@
       font-size: 22px;
       color: #d6e6ff;
       margin: 0 auto 35px;
-      max-width: 850px;
+      max-width: 900px;
     }
 
     .hero img {
@@ -186,6 +188,24 @@
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
     }
 
+    .metric-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .metric-box {
+      background-color: rgba(241, 196, 15, 0.15);
+      border: 2px solid #f1c40f;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 15px;
+    }
+
     .placeholder {
       color: #b8c7dd;
       font-style: italic;
@@ -198,239 +218,272 @@
       font-size: 18px;
     }
   </style>
+
 </head>
 
 <body>
 
   <section class="hero">
-    <h1>Who Really Carries?</h1>
+    <h1>What Role Makes the Biggest Impact in League of Legends Esports?</h1>
     <p class="subtitle">
-      Measuring role-adjusted impact in 2025 professional League of Legends esports
+      A 2025 professional esports data science project using Oracle's Elixir data
     </p>
 
-    <img src="images/LoL_Logo.webp" alt="League of Legends project banner">
+```
+<img src="images/LoL_Logo.webp" alt="League of Legends project banner">
+```
+
   </section>
 
   <main class="container">
 
-    <div class="card">
-      <span class="step-label">Step 1</span>
-      <h2>Introduction</h2>
+```
+<div class="card">
+  <span class="step-label">Step 1</span>
+  <h2>Introduction</h2>
 
-      <p>
-        This project studies professional League of Legends esports data from Oracle's Elixir.
-        My main goal is to understand which roles most often produce the strongest player
-        performance on winning teams.
-      </p>
+  <p>
+    This project utilizes professional League of Legends esports data from
+    Oracle's Elixir to study player performance on winning teams.
+  </p>
 
-      <p>
-        The main question is:
-        <span class="highlight">Among winning teams, which role is most likely to be the main impact player?</span>
-      </p>
+  <p>
+    My goal is to decide whether certain roles lead to stronger player performance
+    on winning teams compared to other roles.
+  </p>
 
-      <p>
-        I use the term <span class="highlight">main impact player</span> instead of only “carry”
-        because players can help win in different ways. A bot laner may carry through damage,
-        while a support may carry through assists, vision, and low deaths.
-      </p>
-    </div>
+  <p>
+    The main question is:
+    <span class="highlight">What role makes the biggest impact in 2025 professional League of Legends esports?</span>
+  </p>
 
-    <div class="image-card">
-      <img src="images/5_roles2.png" alt="Five League of Legends roles">
-    </div>
+  <p>
+    I use the term <span class="highlight">main impact player</span> instead of only “carry”
+    because players can help win in different ways. A bot laner may carry through damage,
+    while a support may carry through assists, vision, and low deaths.
+  </p>
+</div>
 
-    <div class="card">
-      <h2>What Does Role-Adjusted Impact Mean?</h2>
+<div class="image-card">
+  <img src="images/5_roles2.png" alt="Five League of Legends roles">
+</div>
 
-      <p>
-        A normal carry score based only on kills, damage, or gold would usually favor bot and mid laners.
-        That would be unfair because each role has a different job.
-      </p>
+<div class="card">
+  <h2>What Does Role-Adjusted Impact Mean?</h2>
 
-      <p>
-        To fix this, I compare each player only to other players in the same role across the dataset.
-        For example, supports are compared to other supports, junglers are compared to other junglers,
-        and bot laners are compared to other bot laners.
-      </p>
+  <p>
+    A normal carry score based only on kills, damage, or gold would usually favor bot and mid laners.
+    That would be unfair because each role has a different job.
+  </p>
 
-      <div class="note">
-        <p>
-          This does not mean I only compare the two players with the same role in one game.
-          It means I compare each player to the overall distribution of players in that same role.
-        </p>
-      </div>
+  <p>
+    To fix this, I compare each player only to other players in the same role across the dataset.
+    Supports are compared to supports, junglers to junglers, and bot laners to bot laners.
+  </p>
 
-      <div class="formula">
-        role-adjusted impact = average of role-based performance percentiles
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-label">Step 2</span>
-      <h2>Data Cleaning and Exploratory Data Analysis</h2>
-
-      <p>
-        The dataset has both player rows and team summary rows. Since this project is about individual
-        player impact, I mainly use the player rows where the position is top, jungle, mid, bot, or support.
-      </p>
-
-      <p>
-        I also create new columns for player impact, such as kill participation, KDA,
-        damage per minute, vision per minute, and role-adjusted percentiles.
-      </p>
-
-      <p class="placeholder">
-        More EDA plots and tables will be added here as the project develops.
-      </p>
-    </div>
-
-    <div class="card">
-      <span class="step-label">Step 3</span>
-      <h2>Assessment of Missingness</h2>
-
-      <p class="placeholder">
-        Coming soon: I will analyze missing values in the dataset and test whether missingness depends
-        on another column.
-      </p>
-    </div>
-
-    <div class="card">
-      <span class="step-label">Step 4</span>
-      <h2>Hypothesis Testing</h2>
-
-      <p>
-        I tested whether all five roles are equally likely to be the main impact player among winning teams.
-      </p>
-
-      <p>
-        <strong>Null hypothesis:</strong> Top, jungle, mid, bot, and support are equally likely to be
-        the main impact player. Each role should appear about 20% of the time.
-      </p>
-
-      <p>
-        <strong>Alternative hypothesis:</strong> Some roles are more likely than others to be the main impact player.
-      </p>
-
-      <p>
-        I used <span class="highlight">Total Variation Distance (TVD)</span> to compare the observed role
-        distribution to the expected equal 20% distribution.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Observed Main Impact Role Distribution</h2>
-
-      <p>
-        After using the role-adjusted impact score, the role distribution became much more balanced.
-      </p>
-
-      <div class="stats">
-        <div class="stat-box">
-          <h3>Top</h3>
-          <p>20.47%</p>
-        </div>
-
-        <div class="stat-box">
-          <h3>Jungle</h3>
-          <p>19.90%</p>
-        </div>
-
-        <div class="stat-box">
-          <h3>Mid</h3>
-          <p>21.41%</p>
-        </div>
-
-        <div class="stat-box">
-          <h3>Bot</h3>
-          <p>20.32%</p>
-        </div>
-
-        <div class="stat-box">
-          <h3>Support</h3>
-          <p>17.89%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-label">Step 5</span>
-      <h2>Framing a Prediction Problem</h2>
-
-      <p>
-        For the prediction part, I am building a binary classification model.
-        The model predicts whether a player is their team’s main impact player.
-      </p>
-
-      <ul>
-        <li><strong>1</strong> = main impact player</li>
-        <li><strong>0</strong> = not main impact player</li>
-      </ul>
-
-      <p>
-        Since the label is based on completed-game performance, the model is not trying to predict the
-        carry before the match starts. It is classifying completed player performances.
-      </p>
-    </div>
-
-    <div class="card">
-      <span class="step-label">Step 6</span>
-      <h2>Baseline Model</h2>
-
-      <p>
-        My baseline model will use Logistic Regression with simple post-game features such as position,
-        kills, deaths, assists, team kills, and team deaths.
-      </p>
-
-      <p>
-        The position column is categorical, so it will be one-hot encoded in an sklearn Pipeline.
-      </p>
-
-      <p class="placeholder">
-        Baseline model results will be added after the model is trained.
-      </p>
-    </div>
-
-    <div class="card">
-      <span class="step-label">Step 7</span>
-      <h2>Final Model</h2>
-
-      <p>
-        To improve the model, I plan to add engineered features such as KDA, kill participation,
-        damage per minute, vision per minute, and role-adjusted performance percentiles.
-      </p>
-
-      <p>
-        I plan to compare Logistic Regression, Random Forest, and Gradient Boosting.
-        I will use GridSearchCV to tune hyperparameters.
-      </p>
-
-      <span class="tag">Logistic Regression</span>
-      <span class="tag">Random Forest</span>
-      <span class="tag">Gradient Boosting</span>
-      <span class="tag">GridSearchCV</span>
-
-      <p class="placeholder">
-        Final model results will be added after training and evaluation.
-      </p>
-    </div>
-
-    <div class="image-card">
-      <img src="images/Model_Idea.png" alt="Model idea diagram">
-    </div>
-
-    <div class="card">
-      <span class="step-label">Step 8</span>
-      <h2>Fairness Analysis</h2>
-
-      <p class="placeholder">
-        Coming soon: I will test whether the model performs differently for different groups,
-        such as damage roles compared to utility roles.
-      </p>
-    </div>
-
-    <p class="footer">
-      Project by Owen Tran
+  <div class="note">
+    <p>
+      This makes the project more fair because it accounts for role differences instead of judging
+      every player with the exact same damage-based formula.
     </p>
+  </div>
+
+  <div class="formula">
+    role-adjusted impact = average of role-based performance percentiles
+  </div>
+</div>
+
+<div class="card">
+  <span class="step-label">Step 2</span>
+  <h2>Data Cleaning and Exploratory Data Analysis</h2>
+
+  <p>
+    The dataset has both player rows and team summary rows. Since this project is about individual
+    player impact, I mainly use the player rows where the position is top, jungle, mid, bot, or support.
+  </p>
+
+  <p>
+    I also create new columns for player impact, such as kill participation, KDA,
+    damage per minute, vision per minute, and role-adjusted percentiles.
+  </p>
+
+  <p>
+    The <strong>position</strong> column is categorical, so it will be one-hot encoded
+    in an sklearn Pipeline to turn the role names into numerical features.
+  </p>
+
+  <p class="placeholder">
+    More EDA plots and tables will be added here as the project develops.
+  </p>
+</div>
+
+<div class="card">
+  <span class="step-label">Step 3</span>
+  <h2>Assessment of Missingness</h2>
+
+  <p class="placeholder">
+    Coming soon: I will analyze missing values in the dataset and test whether missingness depends
+    on another column.
+  </p>
+</div>
+
+<div class="card">
+  <span class="step-label">Step 4</span>
+  <h2>Hypothesis Testing</h2>
+
+  <p>
+    I tested whether all five roles are equally likely to be the main impact player among winning teams.
+  </p>
+
+  <p>
+    <strong>Null hypothesis:</strong> Top, jungle, mid, bot, and support are equally likely to be
+    the main impact player. Each role should appear about 20% of the time.
+  </p>
+
+  <p>
+    <strong>Alternative hypothesis:</strong> Some roles are more likely than others to be the main impact player.
+  </p>
+
+  <p>
+    I used <span class="highlight">Total Variation Distance (TVD)</span> to compare the observed role
+    distribution to the expected equal 20% distribution.
+  </p>
+</div>
+
+<div class="card">
+  <h2>Observed Main Impact Role Distribution</h2>
+
+  <p>
+    After using the role-adjusted impact score, the role distribution became much more balanced.
+  </p>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3>Top</h3>
+      <p>20.47%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Jungle</h3>
+      <p>19.90%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Mid</h3>
+      <p>21.41%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Bot</h3>
+      <p>20.32%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Support</h3>
+      <p>17.89%</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="step-label">Step 5</span>
+  <h2>Framing a Prediction Problem</h2>
+
+  <p>
+    For the prediction part, I am building a binary classification model.
+    The model predicts whether a player is their team’s main impact player.
+  </p>
+
+  <ul>
+    <li><strong>1</strong> = main impact player</li>
+    <li><strong>0</strong> = not main impact player</li>
+  </ul>
+
+  <p>
+    Since the label is based on completed-game performance, the model is not trying to predict the
+    carry before the match starts. It is classifying completed player performances.
+  </p>
+</div>
+
+<div class="card">
+  <span class="step-label">Step 6</span>
+  <h2>Baseline Model</h2>
+
+  <p>
+    My baseline model will use Logistic Regression with simple post-game features such as position,
+    kills, deaths, assists, team kills, and team deaths.
+  </p>
+
+  <p>
+    Since <strong>position</strong> is categorical, I will one-hot encode it in an sklearn Pipeline
+    before fitting the Logistic Regression model.
+  </p>
+
+  <p class="placeholder">
+    Baseline model results will be added after the model is trained.
+  </p>
+</div>
+
+<div class="image-card">
+  <img src="images/Model_Idea.png" alt="Binary classification model idea diagram">
+</div>
+
+<div class="card">
+  <span class="step-label">Step 7</span>
+  <h2>Final Model</h2>
+
+  <p>
+    To improve the model, I plan to add engineered features such as KDA, kill participation,
+    damage per minute, vision per minute, and role-adjusted performance percentiles.
+  </p>
+
+  <p>
+    I plan to compare Logistic Regression, Random Forest, and Gradient Boosting.
+    I will use GridSearchCV to tune hyperparameters.
+  </p>
+
+  <span class="tag">Logistic Regression</span>
+  <span class="tag">Random Forest</span>
+  <span class="tag">Gradient Boosting</span>
+  <span class="tag">GridSearchCV</span>
+
+  <p class="placeholder">
+    Final model results will be added after training and evaluation.
+  </p>
+</div>
+
+<div class="card">
+  <span class="step-label">Step 8</span>
+  <h2>Model Evaluation + Fairness Analysis</h2>
+
+  <p>
+    For my future model evaluation, I will use F1-score, precision, recall,
+    balanced accuracy, and a confusion matrix.
+  </p>
+
+  <p>
+    The most important metric will be <strong>F1-score for main_carry = 1</strong>
+    because I want the model to correctly identify the real main impact player.
+  </p>
+
+  <div class="metric-list">
+    <div class="metric-box">F1-score</div>
+    <div class="metric-box">Precision</div>
+    <div class="metric-box">Recall</div>
+    <div class="metric-box">Balanced Accuracy</div>
+    <div class="metric-box">Confusion Matrix</div>
+  </div>
+
+  <p>
+    For fairness analysis, I will test whether the model performs differently for
+    damage roles compared to utility roles.
+  </p>
+</div>
+
+<p class="footer">
+  Project by Owen Tran
+</p>
+```
 
   </main>
 
