@@ -23,12 +23,12 @@
 
     .hero {
       background: linear-gradient(135deg, #07111f, #123456);
-      padding: 60px 20px 40px;
+      padding: 60px 20px 45px;
       text-align: center;
     }
 
     .hero h1 {
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 0 auto 15px;
       font-size: 46px;
       line-height: 1.1;
@@ -40,29 +40,40 @@
       font-size: 22px;
       color: #d6e6ff;
       margin: 0 auto 35px;
-      max-width: 800px;
+      max-width: 850px;
     }
 
     .hero img {
       width: 100%;
       max-width: 850px;
-      border-radius: 20px;
+      border-radius: 22px;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 0 auto;
-      padding: 35px 20px 60px;
+      padding: 35px 20px 70px;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.13);
       border-radius: 18px;
       padding: 28px;
       margin: 24px 0;
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    }
+
+    .step-label {
+      display: inline-block;
+      color: #07111f;
+      background: #f1c40f;
+      font-weight: 900;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 12px;
     }
 
     h2 {
@@ -72,15 +83,39 @@
       color: #f1c40f;
     }
 
+    h3 {
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-size: 22px;
+    }
+
     p {
       font-size: 18px;
       margin: 10px 0;
       color: #f4f4f4;
     }
 
+    ul {
+      font-size: 18px;
+      color: #f4f4f4;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
     .highlight {
       color: #f1c40f;
       font-weight: 700;
+    }
+
+    .note {
+      background: rgba(241, 196, 15, 0.12);
+      border-left: 5px solid #f1c40f;
+      padding: 15px 18px;
+      border-radius: 10px;
+      margin-top: 15px;
     }
 
     .formula {
@@ -94,9 +129,15 @@
       font-size: 17px;
     }
 
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
     .stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
       gap: 16px;
       margin-top: 22px;
     }
@@ -111,7 +152,7 @@
 
     .stat-box h3 {
       margin: 0;
-      font-size: 22px;
+      font-size: 21px;
       color: #ffffff;
     }
 
@@ -122,40 +163,6 @@
       font-weight: 900;
     }
 
-    .two-column {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-
-    ul {
-      font-size: 18px;
-      color: #f4f4f4;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .image-card {
-      text-align: center;
-      margin: 35px 0;
-    }
-
-    .image-card img {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 18px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 45px;
-      color: #d6e6ff;
-      font-size: 18px;
-    }
-
     .tag {
       display: inline-block;
       background: rgba(241, 196, 15, 0.15);
@@ -164,7 +171,31 @@
       border-radius: 999px;
       font-size: 15px;
       font-weight: 700;
-      margin: 5px;
+      margin: 5px 5px 0 0;
+    }
+
+    .image-card {
+      text-align: center;
+      margin: 28px 0;
+    }
+
+    .image-card img {
+      width: 100%;
+      max-width: 850px;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .placeholder {
+      color: #b8c7dd;
+      font-style: italic;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 45px;
+      color: #d6e6ff;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -183,72 +214,114 @@
   <main class="container">
 
     <div class="card">
-      <h2>Project Overview</h2>
+      <span class="step-label">Step 1</span>
+      <h2>Introduction</h2>
+
       <p>
-        This project uses professional League of Legends esports data from Oracle's Elixir to study
-        which roles most often produce the strongest player performance on winning teams.
+        This project studies professional League of Legends esports data from Oracle's Elixir.
+        My main goal is to understand which roles most often produce the strongest player
+        performance on winning teams.
       </p>
+
       <p>
-        Instead of defining a carry only by damage or gold, I use a
-        <span class="highlight">role-adjusted impact score</span>. This means each player is compared to other
-        players in the same role, so supports, junglers, and damage roles can be evaluated more fairly.
+        The main question is:
+        <span class="highlight">Among winning teams, which role is most likely to be the main impact player?</span>
+      </p>
+
+      <p>
+        I use the term <span class="highlight">main impact player</span> instead of only “carry”
+        because players can help win in different ways. A bot laner may carry through damage,
+        while a support may carry through assists, vision, and low deaths.
       </p>
     </div>
 
-  <img src="images/5_Roles.png" alt="League of Legends project banner" width="800"> 
-    
-    <div class="card">
-      <h2>Main Question</h2>
-      <p>
-        Among winning teams, which role is most likely to be labeled as the main impact player?
-      </p>
+    <div class="image-card">
+      <img src="images/5_roles2.png" alt="Five League of Legends roles">
     </div>
 
     <div class="card">
-      <h2>Why Role-Adjusted Impact?</h2>
+      <h2>What Does Role-Adjusted Impact Mean?</h2>
+
       <p>
-        A normal carry score based only on damage, kills, or gold would usually favor bot and mid laners.
-        However, supports and junglers can also carry through assists, vision, map pressure, and low deaths.
+        A normal carry score based only on kills, damage, or gold would usually favor bot and mid laners.
+        That would be unfair because each role has a different job.
       </p>
+
       <p>
-        To make the project more fair, each player is compared to other players in the same role.
+        To fix this, I compare each player only to other players in the same role across the dataset.
+        For example, supports are compared to other supports, junglers are compared to other junglers,
+        and bot laners are compared to other bot laners.
       </p>
+
+      <div class="note">
+        <p>
+          This does not mean I only compare the two players with the same role in one game.
+          It means I compare each player to the overall distribution of players in that same role.
+        </p>
+      </div>
 
       <div class="formula">
         role-adjusted impact = average of role-based performance percentiles
       </div>
     </div>
 
-    <div class="two-column">
-      <div class="card">
-        <h2>Hypothesis Test</h2>
-        <p>
-          I tested whether all five roles are equally likely to be the main impact player.
-          If the null hypothesis were true, each role would appear about 20% of the time.
-        </p>
-        <p>
-          I used <span class="highlight">Total Variation Distance (TVD)</span> to compare the observed role
-          distribution to the expected equal distribution.
-        </p>
-      </div>
+    <div class="card">
+      <span class="step-label">Step 2</span>
+      <h2>Data Cleaning and Exploratory Data Analysis</h2>
 
-      <div class="card">
-        <h2>Prediction Problem</h2>
-        <p>
-          I am building a binary classification model that predicts whether a player is the main impact
-          player on their winning team.
-        </p>
-        <ul>
-          <li><strong>1</strong> = main impact player</li>
-          <li><strong>0</strong> = not main impact player</li>
-        </ul>
-      </div>
+      <p>
+        The dataset has both player rows and team summary rows. Since this project is about individual
+        player impact, I mainly use the player rows where the position is top, jungle, mid, bot, or support.
+      </p>
+
+      <p>
+        I also create new columns for player impact, such as kill participation, KDA,
+        damage per minute, vision per minute, and role-adjusted percentiles.
+      </p>
+
+      <p class="placeholder">
+        More EDA plots and tables will be added here as the project develops.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="step-label">Step 3</span>
+      <h2>Assessment of Missingness</h2>
+
+      <p class="placeholder">
+        Coming soon: I will analyze missing values in the dataset and test whether missingness depends
+        on another column.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="step-label">Step 4</span>
+      <h2>Hypothesis Testing</h2>
+
+      <p>
+        I tested whether all five roles are equally likely to be the main impact player among winning teams.
+      </p>
+
+      <p>
+        <strong>Null hypothesis:</strong> Top, jungle, mid, bot, and support are equally likely to be
+        the main impact player. Each role should appear about 20% of the time.
+      </p>
+
+      <p>
+        <strong>Alternative hypothesis:</strong> Some roles are more likely than others to be the main impact player.
+      </p>
+
+      <p>
+        I used <span class="highlight">Total Variation Distance (TVD)</span> to compare the observed role
+        distribution to the expected equal 20% distribution.
+      </p>
     </div>
 
     <div class="card">
       <h2>Observed Main Impact Role Distribution</h2>
+
       <p>
-        After using the role-adjusted impact score, the distribution became much more balanced across roles.
+        After using the role-adjusted impact score, the role distribution became much more balanced.
       </p>
 
       <div class="stats">
@@ -280,20 +353,79 @@
     </div>
 
     <div class="card">
-      <h2>Planned Models</h2>
+      <span class="step-label">Step 5</span>
+      <h2>Framing a Prediction Problem</h2>
+
       <p>
-        My baseline model will use Logistic Regression with simple post-game features.
-        For the final model, I plan to compare Logistic Regression, Random Forest, and Gradient Boosting.
+        For the prediction part, I am building a binary classification model.
+        The model predicts whether a player is their team’s main impact player.
+      </p>
+
+      <ul>
+        <li><strong>1</strong> = main impact player</li>
+        <li><strong>0</strong> = not main impact player</li>
+      </ul>
+
+      <p>
+        Since the label is based on completed-game performance, the model is not trying to predict the
+        carry before the match starts. It is classifying completed player performances.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="step-label">Step 6</span>
+      <h2>Baseline Model</h2>
+
+      <p>
+        My baseline model will use Logistic Regression with simple post-game features such as position,
+        kills, deaths, assists, team kills, and team deaths.
+      </p>
+
+      <p>
+        The position column is categorical, so it will be one-hot encoded in an sklearn Pipeline.
+      </p>
+
+      <p class="placeholder">
+        Baseline model results will be added after the model is trained.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="step-label">Step 7</span>
+      <h2>Final Model</h2>
+
+      <p>
+        To improve the model, I plan to add engineered features such as KDA, kill participation,
+        damage per minute, vision per minute, and role-adjusted performance percentiles.
+      </p>
+
+      <p>
+        I plan to compare Logistic Regression, Random Forest, and Gradient Boosting.
+        I will use GridSearchCV to tune hyperparameters.
       </p>
 
       <span class="tag">Logistic Regression</span>
       <span class="tag">Random Forest</span>
       <span class="tag">Gradient Boosting</span>
       <span class="tag">GridSearchCV</span>
+
+      <p class="placeholder">
+        Final model results will be added after training and evaluation.
+      </p>
     </div>
 
     <div class="image-card">
-      <img src="images/Model_Idea.png" alt="League of Legends Baron image">
+      <img src="images/Model_Idea.png" alt="Model idea diagram">
+    </div>
+
+    <div class="card">
+      <span class="step-label">Step 8</span>
+      <h2>Fairness Analysis</h2>
+
+      <p class="placeholder">
+        Coming soon: I will test whether the model performs differently for different groups,
+        such as damage roles compared to utility roles.
+      </p>
     </div>
 
     <p class="footer">
