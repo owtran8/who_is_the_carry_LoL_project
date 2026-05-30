@@ -19,5 +19,5 @@ Owen Tran
 
 
 <p align="center">
-  <img src="images/"baron_pic.jpg" alt="League of Legends image" width="800">
+  <img src="images/baron_pic.jpg" alt="League of Legends image" width="800">
 </p>
