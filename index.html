@@ -1,209 +1,306 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <title>Who Really Carries?</title>
 
   <!-- Lato Font -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
+      background: #07111f;
+      color: #f5f7fb;
+      line-height: 1.6;
+    }
+
+    .hero {
       background: linear-gradient(135deg, #07111f, #123456);
-      color: white;
+      padding: 60px 20px 40px;
       text-align: center;
     }
 
-    .container {
-      max-width: 950px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      font-size: 48px;
+    .hero h1 {
+      max-width: 1000px;
+      margin: 0 auto 15px;
+      font-size: 46px;
+      line-height: 1.1;
       font-weight: 900;
-      margin-bottom: 15px;
       color: #f1c40f;
     }
 
     .subtitle {
-      font-size: 24px;
+      font-size: 22px;
       color: #d6e6ff;
-      margin-bottom: 35px;
+      margin: 0 auto 35px;
+      max-width: 800px;
     }
 
-    img {
-      max-width: 100%;
+    .hero img {
+      width: 100%;
+      max-width: 850px;
       border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-      margin-bottom: 35px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 35px 20px 60px;
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 30px;
-      margin: 25px 0;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 28px;
+      margin: 24px 0;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
     }
 
     h2 {
-      font-size: 34px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 30px;
       color: #f1c40f;
-      margin-bottom: 15px;
     }
 
     p {
-      font-size: 22px;
-      line-height: 1.6;
+      font-size: 18px;
+      margin: 10px 0;
       color: #f4f4f4;
     }
 
+    .highlight {
+      color: #f1c40f;
+      font-weight: 700;
+    }
+
+    .formula {
+      background: rgba(0, 0, 0, 0.35);
+      border-left: 5px solid #f1c40f;
+      padding: 15px 18px;
+      border-radius: 10px;
+      font-family: Consolas, monospace;
+      color: #ffffff;
+      margin-top: 15px;
+      font-size: 17px;
+    }
+
     .stats {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
     }
 
     .stat-box {
-      background-color: rgba(0, 0, 0, 0.35);
-      padding: 20px;
+      background: rgba(0, 0, 0, 0.35);
       border-radius: 15px;
-      width: 140px;
+      padding: 18px;
+      text-align: center;
+      border: 1px solid rgba(241, 196, 15, 0.35);
     }
 
     .stat-box h3 {
-      font-size: 24px;
       margin: 0;
+      font-size: 22px;
       color: #ffffff;
     }
 
     .stat-box p {
-      font-size: 18px;
       margin: 8px 0 0;
+      font-size: 22px;
       color: #f1c40f;
+      font-weight: 900;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    ul {
+      font-size: 18px;
+      color: #f4f4f4;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .image-card {
+      text-align: center;
+      margin: 35px 0;
+    }
+
+    .image-card img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
     }
 
     .footer {
-      margin-top: 40px;
-      font-size: 20px;
+      text-align: center;
+      margin-top: 45px;
       color: #d6e6ff;
+      font-size: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(241, 196, 15, 0.15);
+      color: #f1c40f;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      margin: 5px;
     }
   </style>
-
 </head>
 
 <body>
-  <div class="container">
 
-```
-<h1>Who Really Carries?</h1>
-<p class="subtitle">
-  Measuring League of Legends role impact in 2025 professional esports
-</p>
+  <section class="hero">
+    <h1>Who Really Carries?</h1>
+    <p class="subtitle">
+      Measuring role-adjusted impact in 2025 professional League of Legends esports
+    </p>
 
-<img src="images/LoL_Logo.webp" alt="League of Legends project banner" width="800">
+    <img src="images/LoL_Logo.webp" alt="League of Legends project banner">
+  </section>
 
-<div class="card">
-  <h2>Project Overview</h2>
-  <p>
-    This project studies which League of Legends roles are most often labeled as the
-    main impact player on winning teams.
-  </p>
-</div>
+  <main class="container">
 
-<div class="card">
-  <h2>Main Question</h2>
-  <p>
-    Among winning teams, which role is most likely to be the main carry?
-  </p>
-</div>
-
-<div class="card">
-  <h2>Why I Changed My Idea</h2>
-  <p>
-    My first carry score focused too much on damage and gold.
-    That made it unfair for supports, junglers, and players who impact the game
-    through vision, objectives, and map pressure.
-  </p>
-</div>
-
-<div class="card">
-  <h2>Hypothesis Test</h2>
-  <p>
-    I tested whether all five roles carry equally often.
-    If the null hypothesis were true, each role would be the main carry about 20% of the time.
-  </p>
-
-  <div class="stats">
-    <div class="stat-box">
-      <h3>Top</h3>
-      <p>9.70%</p>
+    <div class="card">
+      <h2>Project Overview</h2>
+      <p>
+        This project uses professional League of Legends esports data from Oracle's Elixir to study
+        which roles most often produce the strongest player performance on winning teams.
+      </p>
+      <p>
+        Instead of defining a carry only by damage or gold, I use a
+        <span class="highlight">role-adjusted impact score</span>. This means each player is compared to other
+        players in the same role, so supports, junglers, and damage roles can be evaluated more fairly.
+      </p>
     </div>
 
-    <div class="stat-box">
-      <h3>Jungle</h3>
-      <p>16.71%</p>
+  <img src="images/5_roles.png" alt="League of Legends project banner" width="800"> 
+    
+    <div class="card">
+      <h2>Main Question</h2>
+      <p>
+        Among winning teams, which role is most likely to be labeled as the main impact player?
+      </p>
     </div>
 
-    <div class="stat-box">
-      <h3>Mid</h3>
-      <p>27.34%</p>
+    <div class="card">
+      <h2>Why Role-Adjusted Impact?</h2>
+      <p>
+        A normal carry score based only on damage, kills, or gold would usually favor bot and mid laners.
+        However, supports and junglers can also carry through assists, vision, map pressure, and low deaths.
+      </p>
+      <p>
+        To make the project more fair, each player is compared to other players in the same role.
+      </p>
+
+      <div class="formula">
+        role-adjusted impact = average of role-based performance percentiles
+      </div>
     </div>
 
-    <div class="stat-box">
-      <h3>Bot</h3>
-      <p>44.74%</p>
+    <div class="two-column">
+      <div class="card">
+        <h2>Hypothesis Test</h2>
+        <p>
+          I tested whether all five roles are equally likely to be the main impact player.
+          If the null hypothesis were true, each role would appear about 20% of the time.
+        </p>
+        <p>
+          I used <span class="highlight">Total Variation Distance (TVD)</span> to compare the observed role
+          distribution to the expected equal distribution.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Prediction Problem</h2>
+        <p>
+          I am building a binary classification model that predicts whether a player is the main impact
+          player on their winning team.
+        </p>
+        <ul>
+          <li><strong>1</strong> = main impact player</li>
+          <li><strong>0</strong> = not main impact player</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="stat-box">
-      <h3>Support</h3>
-      <p>1.51%</p>
+    <div class="card">
+      <h2>Observed Main Impact Role Distribution</h2>
+      <p>
+        After using the role-adjusted impact score, the distribution became much more balanced across roles.
+      </p>
+
+      <div class="stats">
+        <div class="stat-box">
+          <h3>Top</h3>
+          <p>20.47%</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Jungle</h3>
+          <p>19.90%</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Mid</h3>
+          <p>21.41%</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Bot</h3>
+          <p>20.32%</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Support</h3>
+          <p>17.89%</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="card">
-  <h2>Result</h2>
-  <p>
-    The p-value was about 0.0001, so I rejected the null hypothesis.
-    This suggests some roles are much more likely to be labeled as the main carry.
-  </p>
-</div>
+    <div class="card">
+      <h2>Planned Models</h2>
+      <p>
+        My baseline model will use Logistic Regression with simple post-game features.
+        For the final model, I plan to compare Logistic Regression, Random Forest, and Gradient Boosting.
+      </p>
 
-<div class="card">
-  <h2>Prediction Problem</h2>
-  <p>
-    I am building a classification model that predicts whether a player is the
-    main impact player on their team.
-  </p>
-</div>
+      <span class="tag">Logistic Regression</span>
+      <span class="tag">Random Forest</span>
+      <span class="tag">Gradient Boosting</span>
+      <span class="tag">GridSearchCV</span>
+    </div>
 
-<img src="images/Model_Idea.png" alt="League of Legends project banner" width="800">
+    <div class="image-card">
+      <img src="images/baron_pic.jpg" alt="League of Legends Baron image">
+    </div>
 
-  
-<div class="card">
-  <h2>Planned Models</h2>
-  <p>
-    I will start with Logistic Regression, then compare it to Random Forest and
-    Gradient Boosting.
-  </p>
-</div>
+    <p class="footer">
+      Project by Owen Tran
+    </p>
 
-<p class="footer">
-  Project by Owen Tran
-</p>
-```
+  </main>
 
-  </div>
 </body>
 </html>
-
