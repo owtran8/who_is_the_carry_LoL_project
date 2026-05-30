@@ -1,74 +1,209 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <title>Who Really Carries?</title>
+
+  <!-- Lato Font -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(135deg, #07111f, #123456);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 15px;
+      color: #f1c40f;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      color: #d6e6ff;
+      margin-bottom: 35px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 25px 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    h2 {
+      font-size: 34px;
+      color: #f1c40f;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 1.6;
+      color: #f4f4f4;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .stat-box {
+      background-color: rgba(0, 0, 0, 0.35);
+      padding: 20px;
+      border-radius: 15px;
+      width: 140px;
+    }
+
+    .stat-box h3 {
+      font-size: 24px;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .stat-box p {
+      font-size: 18px;
+      margin: 8px 0 0;
+      color: #f1c40f;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 20px;
+      color: #d6e6ff;
+    }
+  </style>
+
 </head>
 
 <body>
-  <h1>I AM THE MAIN CARRY! Measuring League of Legends Role's Impact in Professional ESPORTS in 2025</h1>
+  <div class="container">
 
-  <img src="images/LoL_Logo.webp" alt="League of Legends project banner" width="800">
-  
+```
+<h1>Who Really Carries?</h1>
+<p class="subtitle">
+  Measuring League of Legends role impact in 2025 professional esports
+</p>
+
+<img src="images/LoL_Logo.webp" alt="League of Legends project banner" width="800">
+
+<div class="card">
   <h2>Project Overview</h2>
   <p>
-    This project uses professional League of Legends esports data from Oracle's Elixir to study
-    which roles most often produce the strongest player performance on winning teams.
+    This project studies which League of Legends roles are most often labeled as the
+    main impact player on winning teams.
   </p>
+</div>
 
-  <p>
-    Instead of defining a carry only by damage or gold, I use a role-adjusted impact score.
-    This means each player is compared to other players in the same role, so supports,
-    junglers, and damage roles can be evaluated more fairly.
-  </p>
-
+<div class="card">
   <h2>Main Question</h2>
   <p>
-    Among winning teams, which role is most likely to be labeled as the main impact player?
+    Among winning teams, which role is most likely to be the main carry?
   </p>
+</div>
 
+<div class="card">
+  <h2>Why I Changed My Idea</h2>
+  <p>
+    My first carry score focused too much on damage and gold.
+    That made it unfair for supports, junglers, and players who impact the game
+    through vision, objectives, and map pressure.
+  </p>
+</div>
+
+<div class="card">
   <h2>Hypothesis Test</h2>
   <p>
-    My null hypothesis is that top, jungle, mid, bot, and support are equally likely to be
-    the main impact player among winning teams. This would mean each role should appear
-    as the main impact player about 20% of the time.
+    I tested whether all five roles carry equally often.
+    If the null hypothesis were true, each role would be the main carry about 20% of the time.
   </p>
 
+  <div class="stats">
+    <div class="stat-box">
+      <h3>Top</h3>
+      <p>9.70%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Jungle</h3>
+      <p>16.71%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Mid</h3>
+      <p>27.34%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Bot</h3>
+      <p>44.74%</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Support</h3>
+      <p>1.51%</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Result</h2>
   <p>
-    My alternative hypothesis is that some roles are more likely than others to be labeled
-    as the main impact player.
+    The p-value was about 0.0001, so I rejected the null hypothesis.
+    This suggests some roles are much more likely to be labeled as the main carry.
   </p>
+</div>
 
-  <p>
-    I used Total Variation Distance, or TVD, to compare the observed role distribution to
-    the expected equal 20% distribution.
-  </p>
-
+<div class="card">
   <h2>Prediction Problem</h2>
   <p>
-    For the prediction part of the project, I am building a binary classification model.
-    The model predicts whether a player was their team's main impact player.
+    I am building a classification model that predicts whether a player is the
+    main impact player on their team.
   </p>
+</div>
 
-  <p>
-    The target column is <strong>main_carry</strong>, where 1 means the player was labeled
-    as the main impact player and 0 means they were not.
-  </p>
+<img src="images/Model_Idea.png" alt="League of Legends project banner" width="800">
 
+  
+<div class="card">
   <h2>Planned Models</h2>
   <p>
-    My baseline model will use Logistic Regression with simple post-game features.
-    To improve the model, I plan to engineer features such as KDA, kill participation,
-    damage per minute, vision per minute, and role-adjusted performance percentiles.
+    I will start with Logistic Regression, then compare it to Random Forest and
+    Gradient Boosting.
   </p>
+</div>
 
-  <p>
-    For the final model, I plan to compare Logistic Regression, Random Forest, and
-    Gradient Boosting using GridSearchCV.
-  </p>
+<p class="footer">
+  Project by Owen Tran
+</p>
+```
 
-  <h2>Author</h2>
-  <p>
-    Owen Tran
-  </p>
+  </div>
 </body>
 </html>
+
