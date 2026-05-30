@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Who Really Carries?</title>
+</head>
+
+<body>
+  <h1>I AM THE MAIN CARRY! Measuring League of Legends Role's Impact in Professional ESPORTS in 2025</h1>
+
+  <h2>Project Overview</h2>
+  <p>
+    This project uses professional League of Legends esports data from Oracle's Elixir to study
+    which roles most often produce the strongest player performance on winning teams.
+  </p>
+
+  <p>
+    Instead of defining a carry only by damage or gold, I use a role-adjusted impact score.
+    This means each player is compared to other players in the same role, so supports,
+    junglers, and damage roles can be evaluated more fairly.
+  </p>
+
+  <h2>Main Question</h2>
+  <p>
+    Among winning teams, which role is most likely to be labeled as the main impact player?
+  </p>
+
+  <h2>Hypothesis Test</h2>
+  <p>
+    My null hypothesis is that top, jungle, mid, bot, and support are equally likely to be
+    the main impact player among winning teams. This would mean each role should appear
+    as the main impact player about 20% of the time.
+  </p>
+
+  <p>
+    My alternative hypothesis is that some roles are more likely than others to be labeled
+    as the main impact player.
+  </p>
+
+  <p>
+    I used Total Variation Distance, or TVD, to compare the observed role distribution to
+    the expected equal 20% distribution.
+  </p>
+
+  <h2>Prediction Problem</h2>
+  <p>
+    For the prediction part of the project, I am building a binary classification model.
+    The model predicts whether a player was their team's main impact player.
+  </p>
+
+  <p>
+    The target column is <strong>main_carry</strong>, where 1 means the player was labeled
+    as the main impact player and 0 means they were not.
+  </p>
+
+  <h2>Planned Models</h2>
+  <p>
+    My baseline model will use Logistic Regression with simple post-game features.
+    To improve the model, I plan to engineer features such as KDA, kill participation,
+    damage per minute, vision per minute, and role-adjusted performance percentiles.
+  </p>
+
+  <p>
+    For the final model, I plan to compare Logistic Regression, Random Forest, and
+    Gradient Boosting using GridSearchCV.
+  </p>
+
+  <h2>Author</h2>
+  <p>
+    Owen Tran
+  </p>
+</body>
+</html>
