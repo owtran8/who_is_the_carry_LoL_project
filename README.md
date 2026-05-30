@@ -16,3 +16,6 @@ I will build a classification model to predict whether a player is the main carr
 
 ## Author :D
 Owen Tran
+
+
+![League of Legends Project Image](images/baron.jpg)
