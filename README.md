@@ -4,6 +4,12 @@ I made a data science project about professional League of Legends esports in 20
 
 In League of Legends, each team has five players with different roles: top, jungle, mid, bot, and support. This project finds which role is most often the "carry" on a winning team.
 
+
+<p align="center">
+  <img src="images/lanes.png" alt="League of Legends image" width="800">
+</p>
+
+
 ## Project Question
 Among winning professional League of Legends teams, which role is most likely to have the most impact on the game?
 
