@@ -54,14 +54,19 @@ I built two models:
   This model added better engineered features, such as KDA, kill participation, damage per minute,    vision per minute, and role-adjusted performance features.
 
 I evaluated the models using a confusion matrix finding metrics like: 
-  accuracy
+  accuracy:
     (TP + TN) / (TP + FP + FN + TN) 
-  precision
+  precision:
     (TP) / (TP + FP)
-  recall
+  recall:
     (TP) / (TP + FN) 
-  F1-score
+  F1-score:
     balance btw precision and recall 
+
+<p align="center">
+  <img src="images/validation.png" alt="League of Legends image" width="800">
+</p>
+
 
 ## Author
 Owen Tran
