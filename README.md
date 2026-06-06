@@ -1,13 +1,13 @@
-#Who Is the Carry? LoL Project
+##Who Is the Carry? LoL Project
 
 I made a data science project about professional League of Legends esports in 2025.
 
 In League of Legends, each team has five players with different roles: top, jungle, mid, bot, and support. This project finds which role is most often the "carry" on a winning team.
 
-#Project Question
+##Project Question
 Among winning professional League of Legends teams, which role is most likely to have the most impact on the game?
 
-#Project Idea
+##Project Idea
 A normal “carry” score based only on kills, damage, or gold would mostly favor damage-heavy roles like bot and mid. That would not be fair because every role has a different job.
 
 To make the comparison more fair, I use a role-adjusted impact score.
@@ -23,7 +23,7 @@ Supports are compared to other supports
 This helps value different types of impact. 
 For example, supports can be rewarded for assists and vision, while damage roles can be rewarded for damage and fighting impact.
 
-#Features Used
+##Features Used
 The role-adjusted impact score uses five main factors:
 
 Factor	                      Simple Meaning
@@ -39,7 +39,7 @@ I built a classification model to predict whether a player is the "carry" on the
 1 = main impact player
 0 = not main impact player
 
-#Models
+##Models
 I built two models:
 
 1. Baseline Logistic Regression Model
@@ -57,7 +57,7 @@ I evaluated the models using a confusion matrix finding metrics like:
   F1-score
     balance btw precision and recall 
 
-#Author
+##Author
 Owen Tran
 
 
