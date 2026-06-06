@@ -109,7 +109,7 @@
 
     .highlight {
       color: #f1c40f;
-      font-weight: 700;
+      font-weight: 900;
     }
 
     .note {
@@ -135,6 +135,19 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 22px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(241, 196, 15, 0.25);
+      border-radius: 15px;
+      padding: 18px;
+    }
+
+    .mini-card h3 {
+      color: #f1c40f;
+      margin-top: 0;
     }
 
     .stats {
@@ -160,7 +173,7 @@
 
     .stat-box p {
       margin: 8px 0 0;
-      font-size: 22px;
+      font-size: 24px;
       color: #f1c40f;
       font-weight: 900;
     }
@@ -169,11 +182,12 @@
       display: inline-block;
       background: rgba(241, 196, 15, 0.15);
       color: #f1c40f;
-      padding: 6px 12px;
+      padding: 7px 13px;
       border-radius: 999px;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 900;
       margin: 5px 5px 0 0;
+      border: 1px solid rgba(241, 196, 15, 0.40);
     }
 
     .image-card {
@@ -188,6 +202,14 @@
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
     }
 
+    .small-image img {
+      max-width: 600px;
+    }
+
+    .tiny-image img {
+      max-width: 400px;
+    }
+
     .metric-list {
       display: flex;
       justify-content: center;
@@ -200,15 +222,62 @@
       background-color: rgba(241, 196, 15, 0.15);
       border: 2px solid #f1c40f;
       color: white;
-      font-size: 20px;
-      font-weight: 700;
-      padding: 14px 20px;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 12px 18px;
       border-radius: 15px;
     }
 
-    .placeholder {
-      color: #b8c7dd;
-      font-style: italic;
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .result-box {
+      background: rgba(0, 0, 0, 0.38);
+      border: 1px solid rgba(241, 196, 15, 0.45);
+      border-radius: 15px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .result-box h3 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .result-box p {
+      color: #f1c40f;
+      font-size: 26px;
+      font-weight: 900;
+      margin: 7px 0 0;
+    }
+
+    .simple-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .simple-table th {
+      background: #f1c40f;
+      color: #07111f;
+      padding: 12px;
+      text-align: left;
+      font-size: 17px;
+    }
+
+    .simple-table td {
+      background: rgba(0, 0, 0, 0.25);
+      color: #f4f4f4;
+      padding: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      font-size: 16px;
     }
 
     .footer {
@@ -216,6 +285,24 @@
       margin-top: 45px;
       color: #d6e6ff;
       font-size: 18px;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+
+      p, ul {
+        font-size: 16px;
+      }
     }
   </style>
 
@@ -243,24 +330,24 @@
   <h2>Introduction</h2>
 
   <p>
-    This project utilizes professional League of Legends esports data from
-    Oracle's Elixir to study player performance on winning teams.
+    League of Legends is a 5 vs. 5 team game. Each player has one role:
+    <strong>top</strong>, <strong>jungle</strong>, <strong>mid</strong>,
+    <strong>bot</strong>, or <strong>support</strong>. Each role helps the team win in a different way.
   </p>
 
   <p>
-    My goal is to decide whether certain roles lead to stronger player performance
-    on winning teams compared to other roles.
+    This project uses professional League of Legends esports data from Oracle's Elixir.
+    The data includes player stats, team stats, and match stats from 2025 games.
   </p>
 
   <p>
-    The main question is:
-    <span class="highlight">What role makes the biggest impact in 2025 professional League of Legends esports?</span>
+    <strong>Main question:</strong>
+    <span class="highlight">Among winning teams, which role most often becomes the team’s main impact player?</span>
   </p>
 
   <p>
-    I use the term <span class="highlight">main impact player</span> instead of only “carry”
-    because players can help win in different ways. A bot laner may carry through damage,
-    while a support may carry through assists, vision, and low deaths.
+    I use the phrase <strong>main impact player</strong> instead of only “carry” because players can help their team in different ways.
+    For example, a bot player may carry through damage, while a support may carry through assists, vision, and staying alive.
   </p>
 </div>
 
@@ -272,25 +359,52 @@
   <h2>What Does Role-Adjusted Impact Mean?</h2>
 
   <p>
-    A normal carry score based only on kills, damage, or gold would usually favor bot and mid laners.
-    That would be unfair because each role has a different job.
+    A normal carry score based only on kills, damage, or gold would usually favor damage-heavy roles like bot and mid.
+    That would be unfair because every role has a different job.
   </p>
 
   <p>
-    To fix this, I compare each player only to other players in the same role across the dataset.
-    Supports are compared to supports, junglers to junglers, and bot laners to bot laners.
+    To make the comparison more fair, I compare each player only to other players in the same role.
+    This means supports are compared to supports, junglers to junglers, and bot players to bot players.
   </p>
 
   <div class="note">
     <p>
-      This makes the project more fair because it accounts for role differences instead of judging
-      every player with the exact same damage-based formula.
+      This matters because a support should not be expected to out-damage a bot laner,
+      and a jungler should not be judged exactly like a lane player.
     </p>
   </div>
 
   <div class="formula">
     role-adjusted impact = average of role-based performance percentiles
   </div>
+
+  <table class="simple-table">
+    <tr>
+      <th>Feature</th>
+      <th>Simple Meaning</th>
+    </tr>
+    <tr>
+      <td>KDA</td>
+      <td>Did the player get kills and assists while avoiding deaths?</td>
+    </tr>
+    <tr>
+      <td>Kill Participation</td>
+      <td>Was the player involved in many of the team’s kills?</td>
+    </tr>
+    <tr>
+      <td>Damage Per Minute</td>
+      <td>Did the player deal strong damage for their role?</td>
+    </tr>
+    <tr>
+      <td>Vision Per Minute</td>
+      <td>Did the player help provide map vision for their role?</td>
+    </tr>
+    <tr>
+      <td>Low Death Share</td>
+      <td>Did the player avoid being a large share of the team’s deaths?</td>
+    </tr>
+  </table>
 </div>
 
 <div class="card">
@@ -298,32 +412,82 @@
   <h2>Data Cleaning and Exploratory Data Analysis</h2>
 
   <p>
-    The dataset has both player rows and team summary rows. Since this project is about individual
-    player impact, I mainly use the player rows where the position is top, jungle, mid, bot, or support.
+    The dataset has up to 12 rows for each game: 5 players on the blue team,
+    5 players on the red team, and 2 team summary rows.
+    Since my project is about individual player impact, I kept only the player rows.
   </p>
 
   <p>
-    I also create new columns for player impact, such as kill participation, KDA,
-    damage per minute, vision per minute, and role-adjusted percentiles.
+    I focused on winning teams because I wanted to identify the main impact player on each winning team.
+    Then I created new impact features like KDA, kill participation, death share, damage per minute, and vision per minute.
   </p>
 
   <p>
-    The <strong>position</strong> column is categorical, so it will be one-hot encoded
-    in an sklearn Pipeline to turn the role names into numerical features.
+    After that, I turned these stats into role-based percentiles.
+    This is the key step that makes the comparison fair: each player is ranked compared to players in the same role.
   </p>
 
-  <p class="placeholder">
-    More EDA plots and tables will be added here as the project develops.
+  <p>
+    Finally, for each winning team, the player with the highest role-adjusted impact score was labeled
+    <strong>main_carry = 1</strong>. The other four players were labeled <strong>main_carry = 0</strong>.
   </p>
+
+  <div class="note">
+    <p>
+      In the final cleaned data, there are <strong>50,190 winning-player rows</strong> and
+      <strong>10,038 winning teams</strong>. Since one player per winning team is labeled as the main impact player,
+      the main carry rate is <strong>0.20</strong>, or 1 out of every 5 players.
+    </p>
+  </div>
+</div>
+
+<div class="image-card tiny-image">
+  <img src="images/Carry_Labels.png" alt="Preview of main carry labels">
 </div>
 
 <div class="card">
   <span class="step-label">Step 3</span>
   <h2>Assessment of Missingness</h2>
 
-  <p class="placeholder">
-    Coming soon: I will analyze missing values in the dataset and test whether missingness depends
-    on another column.
+  <p>
+    For the missingness section, I looked at <strong>goldat10</strong>.
+    This column records a player’s gold at 10 minutes.
+    Some rows are missing this value.
+  </p>
+
+  <p>
+    This missingness probably happens because not every match has complete timeline data.
+    To check this, I created a column called <strong>goldat10_missing</strong>, which says whether
+    <strong>goldat10</strong> is missing or not.
+  </p>
+
+  <p>
+    Then I tested whether missingness in <strong>goldat10</strong> depends on
+    <strong>datacompleteness</strong>. This makes sense because <strong>datacompleteness</strong>
+    tells us whether the match data was complete or partial.
+  </p>
+
+  <div class="two-column">
+    <div class="mini-card">
+      <h3>Why this is likely MAR</h3>
+      <p>
+        If missingness depends on another observed column, like <strong>datacompleteness</strong>,
+        then the missingness is likely <strong>MAR</strong>, or Missing At Random.
+      </p>
+    </div>
+
+    <div class="mini-card">
+      <h3>Why this is probably not NMAR</h3>
+      <p>
+        I do not think <strong>goldat10</strong> is NMAR because the value is probably missing due to data tracking,
+        not because of the actual gold value itself.
+      </p>
+    </div>
+  </div>
+
+  <p>
+    In simple words, the missing value is probably caused by how the match was recorded,
+    not by whether the player had high or low gold.
   </p>
 </div>
 
@@ -336,8 +500,8 @@
   </p>
 
   <p>
-    <strong>Null hypothesis:</strong> Top, jungle, mid, bot, and support are equally likely to be
-    the main impact player. Each role should appear about 20% of the time.
+    <strong>Null hypothesis:</strong> Top, jungle, mid, bot, and support are equally likely to be the main impact player.
+    Each role should appear about 20% of the time.
   </p>
 
   <p>
@@ -345,8 +509,26 @@
   </p>
 
   <p>
-    I used <span class="highlight">Total Variation Distance (TVD)</span> to compare the observed role
-    distribution to the expected equal 20% distribution.
+    I used <strong>Total Variation Distance (TVD)</strong> as my test statistic.
+    TVD measures how far the real role distribution is from the expected 20%, 20%, 20%, 20%, 20% split.
+  </p>
+
+  <div class="result-grid">
+    <div class="result-box">
+      <h3>Observed TVD</h3>
+      <p>0.0161</p>
+    </div>
+
+    <div class="result-box">
+      <h3>p-value</h3>
+      <p>0.0081</p>
+    </div>
+  </div>
+
+  <p>
+    Since the p-value is less than 0.05, I reject the null hypothesis.
+    This means the role distribution is not perfectly even.
+    However, because I used role-adjusted scoring, the results are still much more balanced than a raw damage-only score would be.
   </p>
 </div>
 
@@ -354,35 +536,39 @@
   <h2>Observed Main Impact Role Distribution</h2>
 
   <p>
-    After using the role-adjusted impact score, the role distribution became much more balanced.
+    After using the role-adjusted impact score, the main impact player distribution was close to balanced across the five roles.
   </p>
 
   <div class="stats">
     <div class="stat-box">
       <h3>Top</h3>
-      <p>20.47%</p>
+      <p>20.35%</p>
     </div>
 
     <div class="stat-box">
       <h3>Jungle</h3>
-      <p>19.90%</p>
+      <p>19.84%</p>
     </div>
 
     <div class="stat-box">
       <h3>Mid</h3>
-      <p>21.41%</p>
+      <p>21.26%</p>
     </div>
 
     <div class="stat-box">
       <h3>Bot</h3>
-      <p>20.32%</p>
+      <p>19.86%</p>
     </div>
 
     <div class="stat-box">
       <h3>Support</h3>
-      <p>17.89%</p>
+      <p>18.68%</p>
     </div>
   </div>
+</div>
+
+<div class="image-card">
+  <img src="images/Main_Role.png" alt="Simulation test for main impact role distribution">
 </div>
 
 <div class="card">
@@ -390,8 +576,8 @@
   <h2>Framing a Prediction Problem</h2>
 
   <p>
-    For the prediction part, I am building a binary classification model.
-    The model predicts whether a player is their team’s main impact player.
+    For the prediction part, I built a <strong>binary classification model</strong>.
+    The model predicts whether a player is the main impact player on their winning team.
   </p>
 
   <ul>
@@ -400,9 +586,17 @@
   </ul>
 
   <p>
-    Since the label is based on completed-game performance, the model is not trying to predict the
-    carry before the match starts. It is classifying completed player performances.
+    This is a classification problem because the model predicts a category, not a number.
   </p>
+
+  <p>
+    Also, this is not trying to predict the carry before the game starts.
+    The label is based on completed-game stats, so the model classifies completed player performances.
+  </p>
+</div>
+
+<div class="image-card small-image">
+  <img src="images/Model_Idea.png" alt="Binary classification model idea diagram">
 </div>
 
 <div class="card">
@@ -410,22 +604,45 @@
   <h2>Baseline Model</h2>
 
   <p>
-    My baseline model will use Logistic Regression with simple post-game features such as position,
-    kills, deaths, assists, team kills, and team deaths.
+    My baseline model was a <strong>Logistic Regression</strong> model.
+    I used simple post-game features: position, kills, deaths, assists, team kills, and team deaths.
   </p>
 
   <p>
-    Since <strong>position</strong> is categorical, I will one-hot encode it in an sklearn Pipeline
-    before fitting the Logistic Regression model.
+    The <strong>position</strong> column is categorical, so I used one-hot encoding in an sklearn Pipeline.
+    Numerical columns were imputed and standardized.
   </p>
 
-  <p class="placeholder">
-    Baseline model results will be added after the model is trained.
+  <p>
+    I used this baseline to answer a simple question:
+    <span class="highlight">Are basic combat stats enough to predict the main impact player?</span>
   </p>
-</div>
 
-<div class="image-card">
-  <img src="images/Model_Idea.png" alt="Binary classification model idea diagram">
+  <div class="result-grid">
+    <div class="result-box">
+      <h3>Accuracy</h3>
+      <p>0.800</p>
+    </div>
+
+    <div class="result-box">
+      <h3>Precision</h3>
+      <p>0.501</p>
+    </div>
+
+    <div class="result-box">
+      <h3>Recall</h3>
+      <p>0.838</p>
+    </div>
+
+    <div class="result-box">
+      <h3>F1 Score</h3>
+      <p>0.627</p>
+    </div>
+  </div>
+
+  <p>
+    The baseline model was a reasonable starting point, but it did not fully capture player efficiency or role-specific impact.
+  </p>
 </div>
 
 <div class="card">
@@ -433,64 +650,115 @@
   <h2>Final Model</h2>
 
   <p>
-    To improve the model, I plan to add engineered features such as KDA, kill participation,
-    damage per minute, vision per minute, and role-adjusted performance percentiles.
+    My final model also used <strong>Logistic Regression</strong>, but I added better engineered features.
+    These features were designed to measure player impact more fairly.
   </p>
 
   <p>
-    I plan to compare Logistic Regression, Random Forest, and Gradient Boosting.
-    I will use GridSearchCV to tune hyperparameters.
+    The final model included KDA, kill participation, death share, damage per minute, vision per minute,
+    and role-adjusted percentile features.
   </p>
 
-  
-  <img src="images/Carry_Labels.png" alt="League of Legends Carries">
+  <p>
+    I also used <strong>GridSearchCV</strong> to tune the model’s hyperparameter.
+    This means I tested multiple settings and chose the one that performed best using cross-validation.
+  </p>
 
-  
-  <span class="tag">Logistic Regression</span>
-  <span class="tag">Random Forest</span>
-  <span class="tag">Gradient Boosting</span>
-  <span class="tag">GridSearchCV</span>
+  <div class="metric-list">
+    <div class="metric-box">Logistic Regression</div>
+    <div class="metric-box">GridSearchCV</div>
+    <div class="metric-box">KDA</div>
+    <div class="metric-box">Kill Participation</div>
+    <div class="metric-box">Vision Per Minute</div>
+    <div class="metric-box">Role Percentiles</div>
+  </div>
 
-  <p class="placeholder">
-    Final model results will be added after training and evaluation.
+  <div class="result-grid">
+    <div class="result-box">
+      <h3>Accuracy</h3>
+      <p>0.857</p>
+    </div>
+
+    <div class="result-box">
+      <h3>Precision</h3>
+      <p>0.596</p>
+    </div>
+
+    <div class="result-box">
+      <h3>Recall</h3>
+      <p>0.885</p>
+    </div>
+
+    <div class="result-box">
+      <h3>F1 Score</h3>
+      <p>0.712</p>
+    </div>
+  </div>
+
+  <p>
+    The final model improved the F1-score from <strong>0.627</strong> to <strong>0.712</strong>.
+    This means the engineered features helped the model identify main impact players better than the baseline model.
   </p>
 </div>
 
 <div class="card">
   <span class="step-label">Step 8</span>
-  <h2>Model Evaluation + Fairness Analysis</h2>
+  <h2>Model Evaluation and Fairness Analysis</h2>
 
   <p>
-    For my future model evaluation, I will use F1-score, precision, recall,
-    balanced accuracy, and a confusion matrix.
+    I evaluated the models using a confusion matrix, accuracy, precision, recall, and F1-score.
   </p>
+
+  <table class="simple-table">
+    <tr>
+      <th>Metric</th>
+      <th>Simple Meaning</th>
+    </tr>
+    <tr>
+      <td>Accuracy</td>
+      <td>Out of all predictions, how many were correct?</td>
+    </tr>
+    <tr>
+      <td>Precision</td>
+      <td>When the model predicted main impact player, how often was it right?</td>
+    </tr>
+    <tr>
+      <td>Recall</td>
+      <td>Out of the real main impact players, how many did the model find?</td>
+    </tr>
+    <tr>
+      <td>F1-score</td>
+      <td>A balance between precision and recall.</td>
+    </tr>
+  </table>
 
   <p>
-    The most important metric will be <strong>F1-score for main_carry = 1</strong>
-    because I want the model to correctly identify the real main impact player.
+    I care most about <strong>F1-score</strong> because the classes are imbalanced.
+    Only one out of five winning players is labeled as the main impact player.
   </p>
-
-  <div class="metric-list">
-    <div class="metric-box">F1-score</div>
-    <div class="metric-box">Precision</div>
-    <div class="metric-box">Recall</div>
-    <div class="metric-box">Balanced Accuracy</div>
-    <div class="metric-box">Confusion Matrix</div>
-  </div>
 
   <div class="image-card">
-  <img src="images/Results.png" alt="Binary classification model idea diagram">
+    <img src="images/Results.png" alt="Model evaluation results infographic">
   </div>
 
-  
+  <h3>Fairness Analysis</h3>
+
   <p>
-    For fairness analysis, I will test whether the model performs differently for
-    damage roles compared to utility roles.
+    For fairness, I checked whether the model performed differently for different types of roles.
+    This matters because damage roles and utility roles contribute in different ways.
   </p>
+
+  <p>
+    I compared model performance between <strong>damage roles</strong> and <strong>utility roles</strong>.
+    The fairness test did not show strong evidence that the model performed unfairly between these groups.
+  </p>
+
+  <div class="note">
+    <p>
+      Overall, the role-adjusted method helped make the project more fair because it avoided judging all players by the same raw damage or kill stats.
+    </p>
+  </div>
 </div>
-
-
-<img src="images/Main_Role.png" alt="League of Legends project banner">
 
 <p class="footer">
   Project by Owen Tran
